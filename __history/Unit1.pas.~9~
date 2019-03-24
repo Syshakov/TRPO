@@ -1,0 +1,75 @@
+unit Unit1;
+
+interface
+
+uses
+  System.Generics.Collections,
+  ControllerUnit,
+  ControllersUnit,
+  System.SysUtils, System.Types, System.UITypes, System.Classes,
+  System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
+
+type
+  TForm1 = class(TForm)
+    procedure FormCreate(Sender: TObject);
+  private
+    list:TList<string>;
+    Panels: TList<TPanel>;
+    /// <link>aggregation</link>
+    Controller1: Controllers;
+    procedure CreatePanels(list: TList<string>);
+    { Private declarations }
+  public
+    procedure onClick1(Sender:TObject);
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure TForm1.CreatePanels(list: TList<string>);
+var
+  i: integer;
+  s: string;
+begin
+  i:=0;
+  Panels := TList<TPanel>.Create;
+  self.list:=TList<string>.Create;
+  self.list:=list;
+  for s in list do
+    begin
+      Panels.Add(TPanel.Create(self));
+      with Panels.Last do
+      begin
+        Parent:=self;
+        Top:=i*41;
+        Caption:=s;
+        Width:=300;
+        OnClick:=onClick1;
+      end;
+      i:=i+1;
+    end;
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+var
+  list: TList<string>;
+begin
+  Controller1 := Controller.create;
+  list := TList<string>.create;
+  list := Controller1.getMenu;
+  CreatePanels(list);
+end;
+
+procedure TForm1.onClick1(Sender: TObject);
+begin
+  Controller1.setTest((Sender as TPanel).Caption);
+
+end;
+
+end.

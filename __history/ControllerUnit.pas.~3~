@@ -1,0 +1,40 @@
+unit ControllerUnit;
+
+interface
+
+uses
+  FMX.Controls,
+  FMX.Forms,
+  MenuUnit,
+  MainUnit,
+  System.Generics.Collections,
+  ControllersUnit;
+
+type
+  Controller = class(TInterfacedObject, Controllers)
+  private
+    /// <link>aggregation</link>
+    Menu1: Main;
+    Panel1: TPanel;
+  public
+    function getMenu: TList<string>;
+    constructor create(AOwner: TForm);
+  end;
+
+implementation
+
+constructor Controller.create(AOwner: TForm);
+begin
+  AOwner.Caption := 'Открытая физика';
+  Panel1 := TPanel.create(AOwner);
+  Panel1.Parent := AOwner;
+end;
+
+function Controller.getMenu: TList<string>;
+begin
+  result:=TList<string>.create;
+  Menu1:=Menu.Create;
+  result:=Menu1.getMenu;
+end;
+
+end.
