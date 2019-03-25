@@ -104,7 +104,7 @@ begin
   end;
   while not ADOQuery.Eof do
   begin
-    result.Add(StrToInt(ADOQuery.FieldByName('qoest_id').AsString),
+    result.Add(StrToInt(ADOQuery.FieldByName('quest_id').AsString),
       StrToInt(ADOQuery.FieldByName('answer_id').AsString));
     ADOQuery.Next;
   end;

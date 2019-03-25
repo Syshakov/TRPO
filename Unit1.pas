@@ -8,11 +8,10 @@ uses
   ControllersUnit,
   System.SysUtils, System.Types, System.UITypes, System.Classes,
   System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, Vcl.StdCtrls;
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
 
 type
   TForm1 = class(TForm)
-    Button1: TButton;
     procedure Label1Enter(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -77,7 +76,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 var
   list: TList<string>;
 begin
-  Controller1 := Controller.Create;
+  Controller1 := Controller.Create(self);
   list := TList<string>.Create;
   list := Controller1.getMenu;
   CreatePanels(list);

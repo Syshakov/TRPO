@@ -1,0 +1,17 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 400
+  ClientWidth = 600
+  Visible = False
+  OnCreate = FormCreate
+  StyleLookup = 'backgroundstyle'
+  object Button1: TButton
+    Position.Point = '(384,152)'
+    Width = 80.000000000000000000
+    Height = 22.000000000000000000
+    TabOrder = 1
+    Text = 'Button1'
+  end
+end
