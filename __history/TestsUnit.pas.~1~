@@ -1,10 +1,12 @@
 unit TestsUnit;
 
 interface
+
 type
-  Tests =interface
+  Tests = interface
 
   end;
+
 implementation
 
 end.

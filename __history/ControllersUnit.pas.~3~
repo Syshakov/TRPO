@@ -3,11 +3,11 @@ unit ControllersUnit;
 interface
 
 uses
-System.Generics.Collections;
+  System.Generics.Collections {TDictionary};
 
 type
   Controllers = interface
-    procedure setTest(caption:string);
+    procedure setTest(caption: string);
     function getMenu: TList<string>;
   end;
 

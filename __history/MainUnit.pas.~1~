@@ -1,10 +1,12 @@
 unit MainUnit;
 
 interface
-   type
-   Main = interface
 
-   end;
+type
+  Main = interface
+
+  end;
+
 implementation
 
 end.

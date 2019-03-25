@@ -3,15 +3,17 @@ unit ControllersUnit;
 interface
 
 uses
-  System.Generics.Collections;
+  System.Generics.Collections {TDictionary};
 
 type
   Controllers = interface
+    procedure FIO(fio: string);
     procedure setTest(caption: string);
-    function getMenu: TList<string>;
-    function getQuest: TList<string>;
-    function getAnswer: TList<string>;
-    function getCorrect: TDictionary<integer, integer>;
+    function getFIO: string;
+    function start: boolean;
+    function getMenu(FileName: string): TList<string>;
+    function getQuestCaption: string;
+    function getListAnswer: TList<string>;
   end;
 
 implementation

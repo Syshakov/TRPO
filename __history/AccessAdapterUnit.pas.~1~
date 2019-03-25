@@ -1,10 +1,12 @@
 unit AccessAdapterUnit;
 
 interface
-  type
+
+type
   AccessAdapter = class
 
   end;
+
 implementation
 
 end.

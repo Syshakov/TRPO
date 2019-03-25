@@ -2,6 +2,11 @@ unit MenuUnit;
 
 interface
 
+type
+  Menu = class
+
+  end;
+
 implementation
 
 end.

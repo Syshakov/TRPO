@@ -3,14 +3,14 @@ unit TestsUnit;
 interface
 
 uses
-  System.Generics.Collections;
+  System.Generics.Collections {TDictionary};
 
 type
   Tests = interface
+    function start: boolean;
+    function getQuestCaption: string;
     procedure setTest(caption: string);
-    function getQuest: TList<string>;
-    function getAnswer: TList<string>;
-    function getCorrect: TDictionary<integer, integer>;
+    function getListAnswer: TList<string>;
   end;
 
 implementation

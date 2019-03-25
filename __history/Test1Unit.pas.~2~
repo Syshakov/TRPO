@@ -9,7 +9,7 @@ uses
 type
   Test1 = class(TInterfacedObject, Tests)
   private
-    Adapter: Adapters;
+    Adapter:Adapters;
   public
     procedure setTest(caption: string);
   end;

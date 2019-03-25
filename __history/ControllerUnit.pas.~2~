@@ -3,25 +3,24 @@ unit ControllerUnit;
 interface
 
 uses
-  FMX.Controls,
-  FMX.Forms,
-  ControllersUnit;
+Fmx.controls {tpanel},
+fmx.forms,
+controllersunit;
 
 type
-  Controller = class(TInterfacedObject, Controllers)
-  private
-  Panel1:TPanel;
-  public
-    constructor create(AOwner: TForm);
-  end;
-
+controller = class(tinterfacedobject, controllers)
+private
+panel1:tpanel;
+puublic
+constructor create(aowner: tform);
+end;
 implementation
 
-constructor Controller.create(AOwner: TForm);
+{controller}
+constructor controller.create(aowner: TForm);
 begin
-  AOwner.Caption := 'Открытая физика';
-  panel1 := TPanel.create(AOwner);
-  panel1.Parent := AOwner;
+  aowner.Caption:='открытая физика';
+  panel1:=tpanel.Create(aowner);
+  panel1.Parent:=aowner;
 end;
-
 end.

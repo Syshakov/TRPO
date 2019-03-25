@@ -4,13 +4,15 @@ uses
   FMX.Forms,
   Unit1 in 'Unit1.pas' {Form1},
   ControllersUnit in 'ControllersUnit.pas',
-  ControllerUnit in 'ControllerUnit.pas',
+  PhisicsControllerUnit in 'PhisicsControllerUnit.pas',
   MenuUnit in 'MenuUnit.pas',
   MainUnit in 'MainUnit.pas',
   AdaptersUnit in 'AdaptersUnit.pas',
   AccessAdapterUnit in 'AccessAdapterUnit.pas',
   TestsUnit in 'TestsUnit.pas',
-  Test1Unit in 'Test1Unit.pas';
+  Test1Unit in 'Test1Unit.pas',
+  ResultsUnit in 'ResultsUnit.pas',
+  ResultTestUnit in 'ResultTestUnit.pas';
 
 {$R *.res}
 

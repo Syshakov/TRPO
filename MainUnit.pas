@@ -3,10 +3,13 @@ unit MainUnit;
 interface
 
 uses
-  System.Generics.Collections;
+  System.Generics.Collections {TDictionary};
+
 type
   Main = interface
-    function getMenu: TList<string>;
+    function getFIO: string;
+    procedure FIO(FIO: string);
+    function getMenu(FileName: string): Tlist<string>;
   end;
 
 implementation

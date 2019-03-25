@@ -2,7 +2,13 @@ program Project1;
 
 uses
   FMX.Forms,
+<<<<<<< HEAD
   Unit1 in 'Unit1.pas' {Form1};
+=======
+  Unit1 in 'Unit1.pas' {Form1},
+  ControllersUnit in 'ControllersUnit.pas',
+  ControllerUnit in 'ControllerUnit.pas';
+>>>>>>> parent of 1640e2d... 2 лаба
 
 {$R *.res}
 

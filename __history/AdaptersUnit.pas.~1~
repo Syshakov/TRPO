@@ -1,10 +1,12 @@
 unit AdaptersUnit;
 
 interface
-   type
-   Adapters = interface
 
-   end;
+type
+  adapters = interface
+
+  end;
+
 implementation
 
 end.

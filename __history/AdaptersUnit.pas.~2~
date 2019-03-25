@@ -3,10 +3,10 @@ unit AdaptersUnit;
 interface
 
 uses
-  System.Generics.Collections;
+System.Generics.Collections {TDictionary};
 
 type
-  Adapters = interface
+  adapters = interface
     function getMenu: TList<string>;
   end;
 

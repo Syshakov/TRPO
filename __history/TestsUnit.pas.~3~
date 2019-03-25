@@ -3,10 +3,10 @@ unit TestsUnit;
 interface
 
 uses
-  System.Generics.Collections;
+  System.Generics.Collections {TDictionary};
 
 type
-  Tests = interface
+    Tests = interface
     procedure setTest(caption: string);
     function getQuest: TList<string>;
     function getAnswer: TList<string>;
