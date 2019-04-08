@@ -12,12 +12,16 @@ uses
   TestsUnit in 'TestsUnit.pas',
   Test1Unit in 'Test1Unit.pas',
   ResultsUnit in 'ResultsUnit.pas',
-  ResultTestUnit in 'ResultTestUnit.pas';
+  ResultTestUnit in 'ResultTestUnit.pas',
+  StrategiesUnit in 'StrategiesUnit.pas',
+  OneTrueOneFalseUnit in 'OneTrueOneFalseUnit.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
+  Form1:=TForm1.Create(Application);
+  Form1.UpdateStyle;
   Application.CreateForm(TForm1, Form1);
   Application.Run;
 end.

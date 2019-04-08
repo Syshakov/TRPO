@@ -7,8 +7,6 @@ uses
 
 type
   Main = interface
-    function getFIO: string;
-    procedure FIO(FIO: string);
     function getMenu(FileName: string): Tlist<string>;
   end;
 

@@ -3,11 +3,11 @@ unit Unit1;
 interface
 
 uses
-System.Generics.Collections,
-ControllerUnit,
-ControllersUnit,
-  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
+  System.Generics.Collections {TDictionary} ,
+  PhisicsControllerUnit {PhisicsController} ,
+  ControllersUnit {Controllers} ,
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
 
 type
   TForm1 = class(TForm)
@@ -15,8 +15,7 @@ type
   private
     /// <link>aggregation</link>
     Controller1: Controllers;
-    procedure CreatePanels(list:TList<string>);
-    { Private declarations }
+    procedure createPanels(list: TList<string>);
   public
     { Public declarations }
   end;
@@ -27,18 +26,20 @@ var
 implementation
 
 {$R *.fmx}
-procedure TForm1.CreatePanels(list:TList<string>);
+
+procedure TForm1.createPanels(list: TList<string>);
 begin
 
 end;
+
 procedure TForm1.FormCreate(Sender: TObject);
 var
-  list: TList<string>;
+list: TList<string>;
 begin
-    Controller1 := Controller.create(self);
-    list:=TList<string>.Create;
-    list:=Controller1.getMenu;
-    CreatePanels(Controller1.getMenu);
+  Controller1 := PhisicsController.Create;
+  list:=TList<string>.Create;
+  list:=Controller1.getMenu;
+  createPanels(list);
 end;
 
 end.

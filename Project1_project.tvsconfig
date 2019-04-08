@@ -11,4 +11,5 @@
   <Option Name="namespaceFolder.MenuUnit" Type="System.String" Value="MenuUnit" Category="General" IsBrowsable="False" />
   <Option Name="namespaceFolder.ResultsUnit" Type="System.String" Value="ResultsUnit" Category="General" IsBrowsable="False" />
   <Option Name="namespaceFolder.ResultTestUnit" Type="System.String" Value="ResultTestUnit" Category="General" IsBrowsable="False" />
+  <Option Name="namespaceFolder.OneTrueOneFalseUnit" Type="System.String" Value="" Category="General" IsBrowsable="False" />
 </TgConfig>

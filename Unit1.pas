@@ -18,8 +18,10 @@ type
     procedure FormCreate(Sender: TObject);
     procedure MenuItem1Click(Sender: TObject);
   private
+    AnswerQuest: TList<TLabel>;
+    ResultQuest:Tlist<Tlabel>;
     NextButton:TButton;
-    CheckBox1: TCheckBox;
+    //CheckBox1: TCheckBox;
     Edit1: TEdit;
     Button1: TButton;
     FileName: string;
@@ -29,6 +31,9 @@ type
     CheckBoxsAnswer: TList<TCheckBox>;
     /// <link>aggregation</link>
     Controller1: Controllers;
+    procedure createResultAnswerAndUserCheckAndTrue(Answer:string; i:integer);
+    procedure createResultQuest(Quest:string; i:integer);
+    procedure createResult;
     procedure start(Sender: TObject);
     procedure startButton;
     procedure destroyStartButton;
@@ -108,8 +113,6 @@ end;
 
 procedure TForm1.createListAnswer;
 begin
-  listAnswer := TList<string>.Create;
-  listAnswer := Controller1.getListAnswer;
   createNextAnswer;
 end;
 
@@ -135,6 +138,55 @@ end;
 procedure TForm1.createQuestCaption;
 begin
   self.Caption := Controller1.getQuestCaption;
+end;
+
+procedure TForm1.createResult;
+var s1,s2: string;
+  i:integer;
+begin
+  i:=0;j:=0;
+  Self.Caption:='Результат - ' + Controller1.getFIO;
+  destroyNextButton;
+  //ListQuest
+  //ListAnswer UserCheck TrueCheck
+  resultQuest:=TList<TLabel>.create;
+  AnswerQuest:=TList<TLabel>.create;
+  for s1 in Controller1.resultListQuest do
+  begin
+    createResultQuest(s1,i);
+    i:=i+1;
+  end;
+    for s2 in Controller1.resultListAnswer do begin
+      createResultAnswerAndUserCheckAndTrue(s2, j);
+      j:=j+1;
+  end;
+end;
+
+procedure TForm1.createResultAnswerAndUserCheckAndTrue(Answer: string;
+  i: integer);
+begin
+  AnswerQuest.add(TLabel.Create(nil));
+  with AnswerQuest.Last do begin
+    parent:=self;
+    position.y:=i*41;
+    position.x:=300;
+    height:=41;
+    width:=300;
+    text:=answer;
+  end;
+end;
+
+procedure TForm1.createResultQuest(Quest: string; i:integer);
+var resultQuest1:Tlabel;
+begin
+  ResultQuest.add(TLabel.Create(nil));
+  with ResultQuest.Last do begin
+    parent:=self;
+    position.y:=i*41;
+    height:=41;
+    width:=300;
+    text:=quest;
+  end;
 end;
 
 procedure TForm1.destroyButtons;
@@ -190,18 +242,17 @@ end;
 
 procedure TForm1.getQuest(Sender: TObject);
 begin
-//  destroyStartButton;
   if Controller1.start then
   begin
     createQuestCaption;
     createListAnswer;
 //    Controller1.FIO(Self.Edit1.Text);
   end
-  else
-  begin
+  else createResult;
+  {begin
     self.Caption:= 'Результат - '+ Controller1.getFIO;
     destroyNextButton;
-  end;
+  end;}
 end;
 
 procedure TForm1.MenuItem1Click(Sender: TObject);
@@ -230,6 +281,8 @@ end;
 procedure TForm1.onCheckBoxAnswerClick1(Sender: TObject);
 begin
   //save CheckBox to result in model
+  with (Sender as TCheckBox) do
+    Controller1.saveResult(Text, Self.Caption, IsChecked);
 end;
 
 procedure TForm1.open;

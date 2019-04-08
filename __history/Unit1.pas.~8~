@@ -3,24 +3,23 @@ unit Unit1;
 interface
 
 uses
-  System.Generics.Collections,
-  ControllerUnit,
-  ControllersUnit,
-  System.SysUtils, System.Types, System.UITypes, System.Classes,
-  System.Variants,
-  FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
+  System.Generics.Collections {TDictionary} ,
+  PhisicsControllerUnit {PhisicsController} ,
+  ControllersUnit {Controllers} ,
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs;
 
 type
   TForm1 = class(TForm)
     procedure FormCreate(Sender: TObject);
   private
-    Panels: TList<TPanel>;
+    list: TList<string>;
+    Labels: TList<TLabel>;
     /// <link>aggregation</link>
     Controller1: Controllers;
-    procedure CreatePanels(list: TList<string>);
-    { Private declarations }
+    procedure createPanels(list: TList<string>);
   public
-    { Public declarations }
+    procedure onClick1(Sender:TObject);
   end;
 
 var
@@ -30,25 +29,43 @@ implementation
 
 {$R *.fmx}
 
-procedure TForm1.CreatePanels(list: TList<string>);
+procedure TForm1.createPanels(list: TList<string>);
 var
-  i: integer;
-  s: string;
+  i:integer;
+  s:string;
 begin
   i:=0;
-  Panels := TList<TPanel>.Creat;
+  Labels:=TList<TLabel>.Create;
   self.list:=TList<string>.Create;
   self.list:=list;
+  for s in list do
+    begin
+      Labels.Add(TLabel.Create(self));
+      with Labels.Last do
+      begin
+        Parent:=self;
+        Position.Y:=i*41;
+        Text:=s;
+        Width:=300;
+        OnClick:=onClick1;
+      end;
+      i:=i+1;
+    end;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 var
-  list: TList<string>;
+list: TList<string>;
 begin
-  Controller1 := Controller.create;
-  list := TList<string>.create;
-  list := Controller1.getMenu;
-  CreatePanels(list);
+  Controller1 := PhisicsController.Create;
+  list:=TList<string>.Create;
+  list:=Controller1.getMenu;
+  createPanels(list);
+end;
+
+procedure TForm1.onClick1(Sender: TObject);
+begin
+  Controller1.setTest((Sender as TLabel).Text);
 end;
 
 end.

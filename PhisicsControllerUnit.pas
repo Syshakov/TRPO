@@ -3,7 +3,12 @@ unit PhisicsControllerUnit;
 interface
 
 uses
-  ResultTestUnit, ResultsUnit, MenuUnit, MainUnit, test1unit, testsunit,
+  ResultTestUnit,
+  ResultsUnit,
+  MenuUnit,
+  MainUnit,
+  test1unit,
+  testsunit,
   System.Generics.Collections {TDictionary} ,
   ControllersUnit;
 
@@ -17,6 +22,9 @@ type
     /// <link>aggregation</link>
     Menu1: Main;
   public
+    function resultListAnswer: TList<string>;
+    function resultListQuest: TList<string>;
+    procedure saveResult(answerCaption, questCaption:string; checked:boolean);
     procedure FIO(fio: string);
     procedure setTest(caption: string);
     function getFIO: string;
@@ -32,12 +40,12 @@ implementation
 
 procedure PhisicsController.FIO(FIO: string);
 begin
-  Menu1.FIO(FIO);
+  Test.FIO(FIO);
 end;
 
 function PhisicsController.getFIO: string;
 begin
-  result:= Menu1.getFIO;
+  result:= Test.getFIO;
 end;
 
 function PhisicsController.getListAnswer: TList<string>;
@@ -56,6 +64,23 @@ end;
 function PhisicsController.getQuestCaption: string;
 begin
   result:= Test.getQuestCaption;
+end;
+
+function PhisicsController.resultListAnswer: TList<string>;
+begin
+  result:=TList<string>.create;
+  result:=Test.resultListAnswer;
+end;
+
+function PhisicsController.resultListQuest: TList<string>;
+begin
+  result:=Test.resultListQuest;
+end;
+
+procedure PhisicsController.saveResult(answerCaption, questCaption: string;
+  checked: boolean);
+begin
+  Test.saveResult(answerCaption,questCaption,checked);
 end;
 
 procedure PhisicsController.setTest(caption: string);

@@ -104,6 +104,8 @@
         <DCCReference Include="Test1Unit.pas"/>
         <DCCReference Include="ResultsUnit.pas"/>
         <DCCReference Include="ResultTestUnit.pas"/>
+        <DCCReference Include="StrategiesUnit.pas"/>
+        <DCCReference Include="OneTrueOneFalseUnit.pas"/>
         <None Include="ModelSupport_Project1\default.txaPackage"/>
         <None Include="ModelSupport_Project1\default.txvpck"/>
         <None Include="ModelSupport_Project1\Unit1\default.txvpck"/>
@@ -130,6 +132,10 @@
         <None Include="ModelSupport_Project1\ResultsUnit\default.txvpck"/>
         <None Include="ModelSupport_Project1\ResultTestUnit\default.txaPackage"/>
         <None Include="ModelSupport_Project1\ResultTestUnit\default.txvpck"/>
+        <None Include="ModelSupport_Project1\StrategiesUnit\default.txaPackage"/>
+        <None Include="ModelSupport_Project1\StrategiesUnit\default.txvpck"/>
+        <None Include="ModelSupport_Project1\OneTrueOneFalseUnit\default.txaPackage"/>
+        <None Include="ModelSupport_Project1\OneTrueOneFalseUnit\default.txvpck"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

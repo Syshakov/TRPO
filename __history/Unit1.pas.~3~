@@ -1,0 +1,28 @@
+unit Unit1;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Rtti, System.Classes,
+  System.Variants, FMX.Types, FMX.Controls, FMX.Forms, FMX.Dialogs, ControllerUnit, ControllersUnit;
+
+type
+  TForm1 = class(TForm)
+  procedure formcreate(sender: tobject);
+  private
+
+    controller1:controllers;
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.fmx}
+
+procedure tform1.formcreate(sender: TObject);
+begin
+  controller1:=controller.create(self);
+end;
+end.
